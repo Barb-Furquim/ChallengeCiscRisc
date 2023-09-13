@@ -2,15 +2,15 @@ programa {
 
   real deposito, valorSaque, saldoAtual
   cadeia opcao, novaOperacao
-  real saldo = 600
+  real saldo = 700
 
   funcao inicio() {
 
     escreva("\nMenu:")
-    escreva("\n1) DepÛsito \n2) Saque \n3) Consultar saldo \n4) Sair da operaÁ„o \n5) Repetir menu \nEscolha uma das opÁıes: ")
+    escreva("\n1) Dep√≥sito \n2) Saque \n3) Consultar saldo \n4) Sair da opera√ß√£o \n5) Repetir menu \nEscolha uma das op√ß√µes: ")
     leia(opcao)
 
-    // se o usu·rio digitar uma opÁ„o inv·lida.
+    // se o usu√°rio digitar uma op√ß√£o inv√°lida.
     se (opcao <= 5){
       se (opcao == 1){
         deposito()   
@@ -22,29 +22,29 @@ programa {
         consultaSaldo()
       }
       senao se (opcao == 4){
-        escreva("\nVocÍ saiu da operaÁ„o.\n")
+        escreva("\nVoc√™ saiu da opera√ß√£o.\n")
       }
       senao se (opcao == 5){
         inicio()
       }
     }senao{
-      escreva("\nVocÍ digitou uma opÁ„o inv·lida, escolha novamente.\n")
+      escreva("\nVoc√™ digitou uma op√ß√£o inv√°lida, escolha novamente.\n")
       inicio()
     }
   }
 
   funcao deposito (){
 
-    escreva("\nDigite o valor desejado para depÛsito: ") 
+    escreva("\nDigite o valor desejado para dep√≥sito: ") 
     leia(deposito)
 
-    // atribui ‡ vari·vel "saldo" o valor do depÛsito + o saldo j· existente.
+    // atribui √† vari√°vel "saldo" o valor do dep√≥sito + o saldo j√° existente.
     saldo = deposito + saldo
-    escreva("\nSeu saldo atual È: " + saldo + " reais.\n")  
-    escreva("\nDeseja realizar outra operaÁ„o s/n? ")
+    escreva("\nSeu saldo atual √©: " + saldo + " reais.\n")  
+    escreva("\nDeseja realizar outra opera√ß√£o s/n? ")
     leia (novaOperacao)
 
-    // se o usu·rio deseja realizar outra operaÁ„o.
+    // se o usu√°rio deseja realizar outra opera√ß√£o.
     se(novaOperacao == "s"){
       retorne inicio()
     }
@@ -55,27 +55,27 @@ programa {
     escreva("\nDigite o valor do saque: ")
       leia(valorSaque)
 
-      // se o valor do saque È menor ou igual ao saldo.
+      // se o valor do saque √© menor ou igual ao saldo.
       se (valorSaque <= saldo){
         
         saldo = saldo - valorSaque
-        escreva("\nSeu saldo atual agora È: ", saldo,  " reais.\n")
-        escreva("\nDeseja realizar outra operaÁ„o s/n? ")
+        escreva("\nSeu saldo atual agora √©: ", saldo,  " reais.\n")
+        escreva("\nDeseja realizar outra opera√ß√£o s/n? ")
         leia (novaOperacao)
 
-        // se o usu·rio deseja realizar outra operaÁ„o.
+        // se o usu√°rio deseja realizar outra opera√ß√£o.
         se (novaOperacao == "s"){
           retorne inicio()
         }
       }
 
-      // se o valor do saque È maior que o saldo.
+      // se o valor do saque √© maior que o saldo.
       senao{
 
-        escreva("\nVocÍ n„o possui saldo suficiente para saque. Deseja repetir a operaÁ„o s/n? ")
+        escreva("\nVoc√™ n√£o possui saldo suficiente para saque. Deseja repetir a opera√ß√£o s/n? ")
         leia (novaOperacao)
 
-        // repetir operaÁ„o
+        // repetir opera√ß√£o
         se (novaOperacao == "s"){
           retorne saque()
         }
@@ -83,8 +83,8 @@ programa {
   }
 
   funcao consultaSaldo(){
-    escreva("\nSeu saldo atual È: ", saldo, ".\n")
-    escreva("\nDeseja realizar outra operaÁ„o s/n? ")
+    escreva("\nSeu saldo atual √©: ", saldo, ".\n")
+    escreva("\nDeseja realizar outra opera√ß√£o s/n? ")
     leia (novaOperacao)
       se (novaOperacao == "s"){
         retorne inicio()
@@ -92,8 +92,8 @@ programa {
   }
 }
 
-// Programa para realizar funÁıes de transaÁıes banc·rias, desenvolvido visando a arquitetura CISC.
-// Permite ter um nÌvel maior de complexibilidade, ent„o realizo as seguintes instruÁıes:
+// Programa para realizar fun√ß√µes de transa√ß√µes banc√°rias, desenvolvido visando a arquitetura CISC.
+// Permite ter um n√≠vel maior de complexibilidade, ent√£o realizo as seguintes instru√ß√µes:
 // 1.Utilizo a condicional "se/senao".
-// 2.Repito a verificaÁıes de "Deseja realizar outra operaÁ„o?" dentro de cada funÁıes. 
-//  Uma alternativa era criar uma funÁ„o para essa verificaÁ„o.
+// 2.Repito a verifica√ß√µes de "Deseja realizar outra opera√ß√£o?" dentro de cada fun√ß√µes. 
+//  Uma alternativa era criar uma fun√ß√£o para essa verifica√ß√£o.
