@@ -1,6 +1,6 @@
 programa {
 
-  real deposito, valorSaque, saldoAtual
+  real deposito, valorSaque
   cadeia opcao, novaOperacao
   real saldo = 700
 
