@@ -1,85 +1,91 @@
 programa {
 
-real saldo, valor, valorDeposito, saldoAtual
-real opcao
+real deposito, valorDeposito, valorSaque
+cadeia opcao, novaOperacao
 real saldo = 600
-real operador = 1
 
-  funcao deposito(real valorDeposito, real saldoAtual)
-  {
-    saldoAtual = saldoAtual + valorDeposito
-    retorne saldoAtual
+  funcao deposito(){
+    escreva("\nDigite o valor desejado para deposito: ")
+    leia(deposito)
+
+    // atribui a variavel "saldo" o valor do deposito + o saldo ja existente.
+    saldo = deposito + saldo
+    escreva("\nSeu saldo atual e: " + saldo + " reais.\n")
   }
 
-  funcao saque(real valorSaque, real saldoAtual)
-  {
-    se (saldo >= valorSaque)
-    {
-      saldoAtual = saldo - valorSaque
-      escreva("\nValor do saque: ", valorSaque, "\n")
-      escreva("\nSaldo atual: ", saldoAtual, "\n")
+  funcao saque(){
+    escreva("\nDigite o valor do saque: ")
+    leia(valorSaque)
+
+      // se o valor do saque e menor ou igual ao saldo.
+    se (valorSaque <= saldo){
+      saldo = saldo - valorSaque
+      escreva("\nSeu saldo atual agora e: ", saldo,  " reais.\n")
+    }senao{
+      escreva("\nVoce nao possui saldo suficiente para saque. Deseja realizar outra operacao s/n? ")
+        leia (novaOperacao)
+
+        // repetir operacaoo
+        se (novaOperacao == "s"){
+          retorne inicio()
+        }
     }
-    senao
-    {
-      escreva("\nSaldo insuficiente para saque.\n")
-    }
-    retorne saldoAtual
   }
 
-  funcao consultaSaldo(real saldoAtual)
-  {
-    escreva("\nSaldo atual: ", saldoAtual, "\n")
+  funcao consultaSaldo(){
+    escreva("\nSaldo atual: ", saldo, "\n")
   }
 
-  funcao printarMenu()
-  {
-    escreva("\nMenu:")
-    escreva("\n1) Depósito")
-    escreva("\n2) Saque")
-    escreva("\n3) Consultar Saldo")
-    escreva("\n4) Sair da operação")
-    escreva("\n5) Apresentar Menu\n")
-    escreva("\nDigite o número correspondente a operação desejada: ")
+  funcao printarMenu(){
+    escreva("\nMenu: \n1) Deposito \n2) Saque \n3) Consultar saldo \n4) Sair da operacao \nEscolha uma das opcoes: ")
   }
 
-  funcao inicio() 
-  {
+  funcao realizarNovaOperacao(){
+  escreva("\nDeseja realizar outra operacao s/n? ")
+  leia (novaOperacao)
+
+  // se o usuario deseja realizar outra operacao.
+  se(novaOperacao == "s"){
+    retorne inicio()
+  }
+}
+
+  funcao inicio() {
     printarMenu()
-    equanto (operador == 1)
-    {
-      leia(opcao)
+    leia(opcao)
+    equanto(opcao <= "4"){
       escolha (opcao)
       {
-        caso 1:
-            escreva("\nDigite o valor do depósito: ")
-            leia(valor)
-            escreva("\nSeu saldo atual é: ", deposito(valor, saldo))
+        caso "1":
+        deposito()
+        realizarNovaOperacao()
+        pare
 
-            // Para adicionar uma linha em branco para separar a frase do final do programa
-            escreva("\n") 
-            pare
+        caso "2":
+        saque()
+        realizarNovaOperacao()
+        pare
 
-        caso 2:
-            escreva("\nDigite o valor do saque: ")
-            leia(valor)
-            saldo = saque(valor, saldo)
-            pare
+        caso "3":
+        consultaSaldo()
+        realizarNovaOperacao()
+        pare
 
-        caso 3:
-            consultaSaldo(saldo)
-            pare
+        caso "4":
+        escreva("\nSaindo do programa.\n")
+        pare
 
-        caso 4:
-            escreva("\nSaindo do programa.\n")
-            pare
-
-        caso 5:
-            printarMenu()
-            pare
-
-        caso contrario
-            escreva("\nOpção inválida. Escolha novamente.\n")
+        caso contrario:
+        escreva("\nOpcao invalida. Escolha novamente.\n")
+        inicio()
       }
     }
   }
 }
+
+// Programa simples desenvolvido em portugol para realizar funcoes de transacoes bancarias, desenvolvido visando a arquitetura RISC.
+// Utiliza instrucoes reduzidas, entao realizo as seguintes instrucoes:
+// 1.Utilizo a condicional "escolha/caso", o que diminui a complexibilidade do programa.
+// 2.Diferente do programa para a arquitetura CISC, fiz uma funcao para realizar outra operacao, caso o usuario queira, 
+// que e a funcao "realizarNovaOperacao()" para n o precisar repetir essa verifica  o em cada funcao, 
+// o que tambem diminui a complexibilidade do programa.
