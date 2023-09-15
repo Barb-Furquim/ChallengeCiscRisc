@@ -92,7 +92,7 @@ programa {
   }
 }
 
-// Programa para realizar funções de transações bancárias, desenvolvido visando a arquitetura CISC.
+// Programa simples desenvolvido em portugol para realizar funções de transações bancárias, desenvolvido visando a arquitetura CISC.
 // Permite ter um nível maior de complexibilidade, então realizo as seguintes instruções:
 // 1.Utilizo a condicional "se/senao".
 // 2.Repito a verificações de "Deseja realizar outra operação?" dentro de cada funções. 
