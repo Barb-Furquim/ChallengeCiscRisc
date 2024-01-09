@@ -1,17 +1,17 @@
 # ChallengeCiscRisc
 
-* Desafio Banco Vai na Web
+* Banco Vai na Web Challenge
+
+  * Challenge description:
   
-    * Descrição do desafio:
-  
--> Criar um menu inicial com as opções: Depósito, Saque, Consulta e saída, sendo esse último caso sair da operação sem escolher nenhuma das opções.
-
--> O menu precisa ser repetido, caso o usuário digite uma tecla diferente das oferecidas no menu. Se ele digitar a opção de saída, imprima uma mensagem de despedida.
-
--> Poderá utilizar as estruturas utilizadas em aula, exemplo o se/senao, escola/caso, para, enquanto e faca/enquanto.
-
--> Um requisito OBRIGATÓRIO é uma função (subrotina) diferente da inicio().
-
--> Será necessário a criação de 2 estruturas, ou seja, 2 arquivos. Terão que ser diferentes tendo um visando a arquitetura CISC e o outro visando a RISC.
-
--> Não esquecer de gerenciar as memórias tipando certo as váriaveis.
+    -> Create an initial menu with the options: Deposit, Withdrawal, Consultation and exit, in the latter case leaving the operation without choosing any of the options.
+    
+    -> The menu needs to be repeated if the user types a key other than those offered in the menu. If he types the exit option, print a goodbye message.
+    
+    -> You can use the structures used in class, such as if/else, switch/case, for, while and do-while. 
+    
+    -> A MANDATORY requirement is a function other than main().
+    
+    -> It will be necessary to create 2 structures, that is, 2 files. They will have to be different, with one targeting the CISC architecture and the other targeting RISC.
+    
+    -> Don't forget to manage memories by correctly typing the variables.
